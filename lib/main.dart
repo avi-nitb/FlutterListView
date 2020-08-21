@@ -27,7 +27,13 @@ class _MapMethodState extends State<MapMethod> {
         backgroundColor: Colors.green[300],
       ),
       body: Column(
-        children: companies.map((company) => CompanyCard(company: company)).toList(),
+        children: companies.map((company) => CompanyCard(
+            company: company,
+            delete: (){
+              setState(() {
+                companies.remove(company);
+              });
+            })).toList(),
       ),
     );
   }
